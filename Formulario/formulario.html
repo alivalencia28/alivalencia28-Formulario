@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Solicitud de Trabajo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Solicitud de Trabajo</h1>
+        <form action="procesar.php" method="POST">
+            <!-- Nombre completo -->
+            <div class="form-group">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <!-- Correo electrónico -->
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+
+            <!-- Puesto solicitado -->
+            <div class="form-group">
+                <label for="puesto">Puesto solicitado:</label>
+                <input type="text" id="puesto" name="puesto" required>
+            </div>
+
+            <!-- Nivel de educación (selección múltiple) -->
+            <div class="form-group">
+                <label for="nivel_educacion">Nivel de educación:</label>
+                <select id="nivel_educacion" name="nivel_educacion" required>
+                    <option value="">Seleccionar</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Preparatoria">Preparatoria</option>
+                    <option value="Licenciatura">Licenciatura</option>
+                    <option value="Maestría">Maestría</option>
+                    <option value="Doctorado">Doctorado</option>
+                </select>
+            </div>
+
+            <!-- Experiencia laboral -->
+            <div class="form-group">
+                <label for="experiencia">Experiencia laboral:</label>
+                <textarea id="experiencia" name="experiencia" rows="4" required></textarea>
+            </div>
+
+            <!-- Pregunta dicotómica -->
+            <div class="form-group">
+                <label>¿Estás dispuesto a viajar?</label>
+                <div>
+                    <input type="radio" id="viajar_si" name="viajar" value="Sí" required>
+                    <label for="viajar_si">Sí</label>
+                </div>
+                <div>
+                    <input type="radio" id="viajar_no" name="viajar" value="No" required>
+                    <label for="viajar_no">No</label>
+                </div>
+            </div>
+
+            <!-- Pregunta de barra de deslizamiento (salario esperado) -->
+            <div class="form-group">
+                <label for="salario">Salario esperado (en PESO MXN):</label>
+                <input type="range" id="salario" name="salario" min="1000" max="10000" step="500" value="3000" oninput="document.getElementById('salario_val').innerText = this.value;">
+                <span id="salario_val">3000</span>
+            </div>
+
+            <!-- Pregunta de escala de Likert -->
+            <div class="form-group">
+                <label>Califica tu nivel de habilidad en trabajo en equipo:</label>
+                <div>
+                    <input type="radio" id="likert_1" name="habilidad_equipo" value="1" required>
+                    <label for="likert_1">1 (Bajo)</label>
+                </div>
+                <div>
+                    <input type="radio" id="likert_2" name="habilidad_equipo" value="2">
+                    <label for="likert_2">2</label>
+                </div>
+                <div>
+                    <input type="radio" id="likert_3" name="habilidad_equipo" value="3">
+                    <label for="likert_3">3</label>
+                </div>
+                <div>
+                    <input type="radio" id="likert_4" name="habilidad_equipo" value="4">
+                    <label for="likert_4">4</label>
+                </div>
+                <div>
+                    <input type="radio" id="likert_5" name="habilidad_equipo" value="5">
+                    <label for="likert_5">5 (Alto)</label>
+                </div>
+            </div>
+
+            <!-- Pregunta de valoración por estrellas -->
+            <div class="form-group">
+                <label>Califica tu experiencia con lenguajes de programación (1-5 estrellas):</label>
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating_programacion" value="5" required>
+                    <label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating_programacion" value="4">
+                    <label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating_programacion" value="3">
+                    <label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating_programacion" value="2">
+                    <label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating_programacion" value="1">
+                    <label for="star1">★</label>
+                </div>
+            </div>
+
+            <!-- Pregunta de Net Promoter Score (NPS) -->
+            <div class="form-group">
+                <label>En una escala del 0 al 10, ¿qué tan probable es que recomiendes nuestra empresa a un amigo?</label>
+                <input type="number" id="nps" name="nps" min="0" max="10" required>
+            </div>
+
+        <!-- Duda o Comentario-->
+        <div class="form-group">
+            <label for="comentario">Duda o comentario:</label>
+            <textarea id="comentario" name="comentario" rows="4" required></textarea>
+        </div>
+        
+            <!-- Enviar formulario -->
+            <button type="submit">Enviar Solicitud</button>
+        </form>
+    </div>
+</body>
+</html>
